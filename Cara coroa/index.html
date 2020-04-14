@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <title>Cara ou Coroa</title>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Simulador Cara ou Coroa</h1>
+    </div>
+    <div class="game">
+        <script src="./js/main.js"></script>
+        <ul class="buttons">
+            <li>
+                <p>Aposte em cara ou coroa</p>
+            </li>
+            <li>
+                <button type="button" class="button" value="ClickMe" id="myButton1" onclick="clickButton('headBet')"> Cara (a) </button>
+            </li>
+            <li>
+                <button type="button" class="button" value="ClickMe" id="myButton2" onclick="clickButton('tailBet')"> Coroa (s)</button>
+            </li>
+            <li>
+                <button type="button" class="button" value="ClickMe" id="myButton3" onclick="reset()"> Resetar (r) </button>
+            </li>
+            <li>
+                <input type="checkbox" id="showGraph" onclick="checkboxGraph()">
+                <label for="showGraph">Gráfico (g)</label> 
+            </li>
+            <li>
+                <p>Seu dinheiro: R$ <a id="chips">10</a> <a id="change"></a></p>
+            </li>
+            <li>
+                <p><a id = "result" class="result"> Resultado Aqui</a></p>
+            </li>
+            <li>
+                <p> Cara : <a id="heads"> 0 </a> </p>
+            </li>
+            <li>
+                <p> Coroa : <a id="tails"> 0 </a> </p>
+            </li>
+            <li>
+                <p> Cliques: <a id="clicks">0</a> </p>
+            </li>
+            <li>
+                <div class="chart-container" style="position: relative; height:1000px; width:750px;padding-left: 280px;">
+                    <canvas class="myChart" id="myChart" width="16" height="12"></canvas>
+                    <script src = "./js/main.js"></script>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
