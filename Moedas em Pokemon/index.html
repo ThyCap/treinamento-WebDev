@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/pokemon-go-vol-1/135/_Coin-512.png">
+    <title>Cotação Pokémon</title>
+</head>
+<body>
+    <script src="js/main.js"></script>
+    <div class="header">
+        <h1>Moedas em Pokémon</h1>
+    </div>
+    <div class="intro">
+        <p>O site mostra o valor atual do Dólar Americano, Euro e Libra Esterlina e os associa a um pokémon.</p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <ul>
+                    <li>
+                        <h3>Dólar Americano</h3>
+                    </li>
+                    <li>
+                        Valor atual: R$<a id="dollarRate"></a>
+                    </li>
+                    <li>
+                        <img id ='dollarImage' src='' style="height:250px">
+                    </li>
+                    <li>
+                        <a id="dollarId"></a> <a id="dollarName"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <ul>
+                    <li>
+                        <h3>Euro</h3>
+                    </li>
+                    <li>
+                        Valor atual: R$<a id="euroRate"></a>
+                    </li>
+                    <li>
+                        <img id ='euroImage' src='' style="height:250px">
+                    </li>
+                    <li>
+                        <a id="euroId"></a> <a id="euroName"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <ul>
+                    <li>
+                        <h3>Libra Esterlina</h3>
+                    </li>
+                    <li>
+                        Valor atual: R$<a id="poundRate"></a>
+                    </li>
+                    <li>
+                        <img id ='poundImage' src='' style="height:250px">
+                    </li>
+                    <li>
+                        <a id="poundId"></a> <a id="poundName"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer">
+                <p class="footer">Última atualização: <a id="timestamp"></a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
