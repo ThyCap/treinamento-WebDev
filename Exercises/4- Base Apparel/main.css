@@ -1,68 +1,161 @@
-footer {
-    position: absolute;
-    bottom: 0;
+body {
+  background: #fffef1;
+  height: 100%;
+}
+
+body .card {
+  background-color: white;
+  width: 70%;
+  height: 40vw;
+  margin: 10% 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (max-width: 1480px) {
+  body .card {
+    height: 70vh;
     width: 100%;
+    margin: 0 auto;
+  }
 }
 
-.attribution {
-    font-size: 11px;
-    text-align: center;
+body .card__logo {
+  width: 40%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  padding: 60px 0 30px 90px;
 }
 
-.attribution a {
-    color: hsl(228, 45%, 44%);
+@media (max-width: 1480px) {
+  body .card__logo {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    padding: 60px 60px;
+  }
 }
 
-.container {
-    margin: 10vh 12vw 10vh 12vw;
-    background: wheat;
-    font-family: 'Josefin Sans',sans-serif;
-    display: flex;
+body .card__text {
+  font-family: 'Josefin Sans';
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  width: 40%;
+  padding: 30px 90px 120px;
 }
 
-.text {
-    margin: 30px 200px 30px 40px;
-    align-self: center;
-    background: #eeadee;
+@media (max-width: 1480px) {
+  body .card__text {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding: 5px 5px;
+  }
 }
 
-ul li {
-    list-style: none;
-    margin-left: -40px;
-    font-size:40px
+body .card__text__item {
+  list-style: none;
+  font-size: 2.2em;
+  font-weight: 300;
+  margin-left: -40px;
+  white-space: nowrap;
 }
 
-.input {
-    display: flex;
+body .card__text__item--pink {
+  color: #ce9797;
 }
 
-input {
-    height: 40px;
-    width: 280px;
-    font-size: 15px;
-    border-radius: 20px;
-    border: grey 1px solid;
-    box-shadow: none;
-    font-family: 'Josefin Sans';
-    padding-left: 20px;
+body .card__text__item--bold {
+  font-weight: 700;
 }
 
-button {
-    height: 44px;
-    width: 100px;
-    margin-left: -35px;
-    border-radius: 20px;
-    border: grey 1px solid;
-    background: hsl(0, 36%, 70%);
+body .card__text__paragraph {
+  font-size: 1.1em;
+  color: #ce9797;
+  font-weight: 300;
 }
 
-.hero {
-    height:500px;
-    margin-bottom: -4px;
+body .card__text__input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 60px;
 }
 
-.logo {
-    margin: 20px 0 20px 40px;
-    background: #aaadde;
-    align-self: center;
+body .card__text__input__text {
+  height: 95%;
+  min-width: 40%;
+  width: 400px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  font-size: 1.2em;
+  padding: 0 30px 0 30px;
 }
+
+@media (max-width: 1480px) {
+  body .card__text__input__text {
+    font-size: 0.9em;
+  }
+}
+
+body .card__text__input__button {
+  height: 100%;
+  min-width: 80px;
+  width: 120px;
+  border-radius: 30px;
+  background: #ce9797;
+  margin-left: -15%;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+body .card__image {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+  height: 40vw;
+  width: 50%;
+  background-image: url(/images/hero-desktop.jpg);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+}
+
+@media (max-width: 1480px) {
+  body .card__image {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    background-image: url(/images/hero-mobile.jpg);
+    width: 100%;
+    background-position: center;
+  }
+}
+
+body footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=main.css.map */

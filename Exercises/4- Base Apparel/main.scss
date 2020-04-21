@@ -1,0 +1,146 @@
+$colors: (
+    desaturated-Red: hsl(0, 36%, 70%),
+    soft-Red: hsl(0, 93%, 68%),
+    dark-Grayish-Red: hsl(0, 6%, 24%)
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name);
+};
+
+$mobile: 1480px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+$std-padding: 30px;
+$std-border-rd: 15px;
+
+body {
+    background: #fffef1;
+    height: 100%;
+
+    .card {
+        background-color: white;
+        width: 70%;
+        height: 40vw;
+        margin: 10% 15%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+
+        @include mobile {
+            height: 70vh;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+
+        &__logo {
+            width: 40%;
+            order:1;
+            padding: $std-padding * 2 0 $std-padding $std-padding * 3;
+
+            @include mobile {
+                order:1;
+                padding: $std-padding*2 $std-padding * 2;
+
+            }
+        }
+
+        &__text {
+            font-family: 'Josefin Sans';
+            order:2;
+            width: 40%;
+            padding: $std-padding $std-padding * 3 $std-padding * 4;
+
+            @include mobile {
+                order:3;
+                align-self: center;
+                padding: 5px 5px;
+            }
+
+            &__item{
+                list-style: none; 
+                font-size: 2.2em;
+                font-weight: 300;
+                margin-left: -40px;
+                white-space: nowrap;
+
+                &--pink {
+                    color: color(desaturated-Red);
+                }
+
+                &--bold {
+                    font-weight: 700;
+                }
+            }
+
+            &__paragraph {
+                font-size: 1.1em;
+                color: color(desaturated-Red);
+                font-weight: 300;
+            }
+
+            &__input {
+                display: flex;
+                height:3em;
+                align-items: center;
+                margin-top: 60px;
+
+                &__text {
+                    height: 95%;
+                    min-width: 40%;
+                    width: 400px;
+                    border-radius: $std-border-rd;
+                    border: 1px solid rgba( #000000,0.3);
+                    font-size: 1.2em;
+                    padding: 0 30px 0 30px ;
+
+                    @include mobile {
+                        font-size: 0.9em;
+                    }
+                }
+
+                &__button {
+                    height: 100%;
+                    min-width: 80px;
+                    width: 120px;
+                    border-radius: $std-padding;
+                    background: color(desaturated-Red);
+                    margin-left: -15%;
+                    border: 1px solid rgba(#000000,0.3);
+                }
+            }
+        }
+
+        &__image {
+            order:3;
+            height: 40vw;
+            width:50%;
+
+            background-image: url(/images/hero-desktop.jpg);
+            background-repeat: no-repeat;
+            background-position: bottom right;
+            background-size: contain;
+
+            @include mobile {
+                order:2;
+                background-image: url(/images/hero-mobile.jpg);
+                width: 100%;
+                background-position: center;
+            }
+        }
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
