@@ -1,71 +1,88 @@
-let statsY = []
-let statsX = []
+let statsY1 = [];
+let statsY2 = [];
+let statsX = [];
+
+const clicksObj  = document.getElementById("clicks");
+const headsObj   = document.getElementById("heads");
+const tailsObj   = document.getElementById("tails");
+const chipsObj   = document.getElementById("chips");
+const resultObj  = document.getElementById("result");
+const button1Obj = document.getElementById("button1");
+const button2Obj = document.getElementById("button2");
+const changeObj  = document.getElementById("change");
+
 
 function clickButton(bet) {
-    clicks = Number(document.getElementById("clicks").innerHTML);
-    heads = Number(document.getElementById("heads").innerHTML);
-    tails = Number(document.getElementById("tails").innerHTML);
-    chips = Number(document.getElementById("chips").innerHTML);
-    
-    if (chips <= 0) {
-        document.getElementById("result").innerHTML = `Você perdeu! Você sobreviveu a ${clicks} rodadas.`;
-        document.getElementById("Button1").disabled = true;
-        document.getElementById("Button2").disabled = true;
-    }
-   
-    clicks += 1;
-    document.getElementById("clicks").innerHTML = clicks;
+    if (button1Obj.disabled === false){
+        clicksObj.innerHTML = Number(clicksObj.innerHTML) + 1;
 
-    randNum = Math.floor(Math.random()*100);
-    if (randNum%2 === 0) {
-        heads +=1;
-        document.getElementById("result").innerHTML = "Cara!";
-        document.getElementById("heads").innerHTML = heads;
-        if (bet === 'headBet') {
-            chips += 1;
-            document.getElementById("change").innerHTML = "(+1)";
-            document.getElementById("change").style.color ="green";
+        randNum = Math.floor(Math.random()*100);
+        if (randNum%2 === 0) {
+            headsObj.innerHTML = Number(headsObj.innerHTML) + 1;
+            resultObj.innerHTML = "Cara!";
+            headsObj.innerHTML = Number(headsObj.innerHTML);
+            if (bet === 'headBet') {
+                chipsObj.innerHTML = Number(chipsObj.innerHTML) + 1;
+                changeObj.innerHTML = "(+1)";
+                changeObj.style.color = "green";
+            } else {
+                chipsObj.innerHTML = Number(chipsObj.innerHTML) - 1;
+                changeObj.innerHTML = "(-1)";
+                changeObj.style.color = "red";
+
+                if (Number(chipsObj.innerHTML) <= 0) {
+                    resultObj.innerHTML = `Você perdeu! Você sobreviveu a ${clicksObj.innerHTML} rodadas.`;
+                    button1Obj.disabled = true;
+                    button2Obj.disabled = true;
+                }
+            }
+            chipsObj.innerHTML = Number(chipsObj.innerHTML);
         } else {
-            chips -= 1;
-            document.getElementById("change").innerHTML = "(-1)";
-            document.getElementById("change").style.color ="red";
+            tailsObj.innerHTML = Number(tailsObj.innerHTML) + 1;
+            resultObj.innerHTML = "Coroa!";
+            tailsObj.innerHTML = Number(tailsObj.innerHTML);
+            if (bet === 'tailBet') {
+                chipsObj.innerHTML = Number(chipsObj.innerHTML) + 1;
+                changeObj.innerHTML = "(+1)";
+                changeObj.style.color = "green";
+            } else {
+                chipsObj.innerHTML = Number(chipsObj.innerHTML) - 1;
+                changeObj.innerHTML = "(-1)";
+                changeObj.style.color = "red";
+
+                if (Number(chipsObj.innerHTML) <= 0) {
+                    resultObj.innerHTML = `Você perdeu! Você sobreviveu a ${clicksObj.innerHTML} rodadas.`;
+                    button1Obj.disabled = true;
+                    button2Obj.disabled = true;
+                }
+            }
+            chipsObj.innerHTML = Number(chipsObj.innerHTML);
         }
-        document.getElementById("chips").innerHTML = chips;
-    } else {
-        tails +=1;
-        document.getElementById("result").innerHTML = "Coroa!";
-        document.getElementById("tails").innerHTML = tails;
-        if (bet === 'tailBet') {
-            chips += 1;
-            document.getElementById("change").innerHTML = "(+1)";
-            document.getElementById("change").style.color ="green";
-        } else {
-            chips -= 1;
-            document.getElementById("change").innerHTML = "(-1)";
-            document.getElementById("change").style.color ="red";
-        }
-        document.getElementById("chips").innerHTML = chips;
-    }
-    statsX.push(clicks);
-    statsY.push(heads/clicks*100);
-    if (boolGraph){
-        showGraph();
+        statsX.push(Number(clicksObj.innerHTML));
+        statsY1.push(Number(headsObj.innerHTML)/Number(clicksObj.innerHTML)*100);
+        statsY2.push(Number(chipsObj.innerHTML));
+        //if (boolGraph){
+            showGraph();
+        //}
     }
 };
 
 function reset() {
-    document.getElementById("clicks").innerHTML = 0;
-    document.getElementById("heads").innerHTML = 0;
-    document.getElementById("tails").innerHTML = 0;
-    document.getElementById("chips").innerHTML = 10;
-    document.getElementById("result").innerHTML = `Resetado.`;
-    document.getElementById("change").innerHTML = "";
+    clicksObj.innerHTML = 0;
+    headsObj.innerHTML  = 0;
+    tailsObj.innerHTML  = 0;
+    chipsObj.innerHTML  = 10;
+    resultObj.innerHTML = `Resetado.`;
+    changeObj.innerHTML = "";
+    button1Obj.disabled = false;
+    button2Obj.disabled = false;
     statsX = [];
-    statsY= [];
+    statsY1 = [];
+    statsY2 = [];
     showGraph();
 }
 
-let boolGraph = false;
+/*let boolGraph = false;
 function checkboxGraph() {
     if (boolGraph === true) {
         boolGraph = false;
@@ -75,7 +92,7 @@ function checkboxGraph() {
         document.getElementById('showGraph').checked = true;
         showGraph();
     }
-}
+}*/
 
 function showGraph() {
     let myChart = document.getElementById('myChart').getContext('2d');
@@ -89,24 +106,33 @@ function showGraph() {
             labels: statsX,
             datasets: [{
                 lineTension:0,
-                fill: true,
                 borderColor: 'rgb(131,197,217)',
-                data: statsY,
+                data: statsY1,
                 pointRadius: 1,
-                backgroundColor: 'rgb(131,197,217,0.1)'
+                backgroundColor: 'rgb(131,197,217,0.1)',
+                label:'Cara (%)'
+            },{
+                lineTension:0,
+                borderColor: 'rgb(255, 71, 71)',
+                data: statsY2,
+                pointRadius: 1,
+                backgroundColor: 'rgb(255, 71, 71,0.1)',
+                label: 'Dinheiro restante (R$)'
             }]
         },
 
         // Configuration options go here
         options: {
+            //maintainAspectRatio: false,
             title :{
                 display: true,
                 fontFamily: "'Lucida Console', Monaco, monospace",
-                text: "Incidência de eventos cara por rodada"
+                text: "Análise de eventos Cara e dinheiro restante por rodada",
+                fontSize: 20
             },
             animation: false,
             legend:{
-                display:false
+                display:true,
             },
             scales: {
                 yAxes: [{
@@ -145,7 +171,7 @@ document.onkeyup = function(e) {
     else if (e.which === 82) {
         reset();
     }
-    else if (e.which === 71) {
+    /*else if (e.which === 71) {
         checkboxGraph();
-    }
+    }*/
 }

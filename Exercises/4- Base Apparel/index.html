@@ -11,6 +11,31 @@
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
 </head>
 <body>
+  <script>
+    function clickFuntction() {
+      let result = document.getElementById('card__text__input__result');
+      let email = document.getElementById('card__text__input__value');
+      let message = document.getElementById('card__text__result__message');
+
+      let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      console.log(re.test(email));
+
+      if (re.test(email.value)) {
+        email.style.border = '1.5px green solid';
+        result.style.backgroundImage = "url('./images/icon-ok.svg')";
+        result.style.color ="green";
+        message.innerHTML = "Valid Email!";
+        message.style.color = "green";
+        alert('ok');
+      } else {
+        email.style.border = '1.5px red solid';
+        result.style.backgroundImage = "url('./images/icon-error.svg')";
+        message.innerHTML = "Invalid Email";
+        message.style.color = "red";
+        alert('not ok');
+      }
+    }
+  </script>
 
   <div class="card">
     <div class="card__logo">
@@ -27,12 +52,17 @@
       Add your email below to stay up-to-date with announcements and our launch deals.</p>
 
       <div class="card__text__input">
-        <input class="card__text__input__text" type="text" placeholder="Email Address">
-        <button class="card__text__input__button"><img src="/images/icon-arrow.svg"></button>
+        <input class="card__text__input__text" type="text" placeholder="Email Address" id="card__text__input__value">
+        <span class="card__text__input__result" id="card__text__input__result"></span>
+        <button class="card__text__input__button"><img src="/images/icon-arrow.svg" onclick="clickFuntction()"></button> <br>
+      </div>
+
+      <div class="card__text__result">
+        <a class="card__text__result__message" id="card__text__result__message"></a>
       </div>
     </div>
     <div class="card__image">
-      <span class="card__image__hero"></span>
+      <a class="card__image__hero"></a>
     </div>
   </div>
   
@@ -42,5 +72,7 @@
       Coded by <a href="#">Thyago Capitanio</a>.
     </p>
   </footer>
+
+
 </body>
 </html>
