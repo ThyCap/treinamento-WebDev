@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="container__header">
+      <h1>Our Pricing</h1>
+      Annually
+      <input type="checkbox" id="container__header__checkbox" onclick="check()" unchecked>
+      Monthly
+    </div>
+    <div class="container__plans">
+      <div class="container__plans__options container__plans__options--white">
+        <ul>
+          <li>
+            Basic
+          </li>
+          <li class="container__plans__options__price">
+            <a id="basic__value">$19.99</a>
+          </li>
+          <li class="container__plans__options__underline">500 GB Storage</li>
+          <li class="container__plans__options__underline">2 Users Allowed</li>
+          <li class="container__plans__options__underline">Send up to 3 GB</li>
+          <li><button>Learn More</button></li>
+        </ul>
+      </div>
+      <div class="container__plans__options container__plans__options--purple">
+        <ul>
+          <li>
+            Professional
+          </li>
+          <li class="container__plans__options__price">
+            <a id="prof__value">$24.99</a>
+          </li>
+          <li class="container__plans__options__underline">1 TB Storage</li>
+          <li class="container__plans__options__underline">5 Users Allowed</li>
+          <li class="container__plans__options__underline">Send up to 10 GB</li>
+          <li><button>Learn More</button></li>
+        </ul>
+      </div>
+      <div class="container__plans__options container__plans__options--white">
+        <ul>
+          <li>
+            Master
+          </li>
+          <li class="container__plans__options__price">
+            <a id="master__value">$39.99</a>
+          </li>
+          <li class="container__plans__options__underline">2 TB Storage</li>
+          <li class="container__plans__options__underline">10 Users Allowed</li>
+          <li class="container__plans__options__underline">Send up to 20 GB</li>
+          <li><button>Learn More</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+
+  <script>
+    let checkBool = false;
+
+    function check() {
+      const basic__value  = document.getElementById('basic__value');
+      const prof__value   = document.getElementById('prof__value');
+      const master__value = document.getElementById('master__value');
+
+      if (checkBool == false) {
+        checkBool = true;
+        basic__value.innerHTML = "$19.99";
+        prof__value.innerHTML = "$24.99";
+        master__value.innerHTML = "$39.99";
+      } else {
+        checkBool = false;
+        basic__value.innerHTML = "$199.99";
+        prof__value.innerHTML = "$249.99";
+        master__value.innerHTML = "$399.99";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+$colors: (
+    very-light-grayish-blue: hsl(240, 78%, 98%),
+    light-grayish-blue: hsl(234, 14%, 74%),
+    grayish-blue: hsl(233, 13%, 49%),
+    dark-grayish-blue: hsl(232, 13%, 33%)
+);
+
+@function color($color-name) {
+    @return map-get($colors, $color-name)
+}
+
+$mobile: 1000px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    background: whitesmoke;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+
+    &__header {
+        text-align: center;
+
+        h1 {
+            font-size: 2.5em;
+        }
+    }
+
+    &__plans {
+        display: flex;
+        padding: 50px 0;
+
+        @include mobile {
+            flex-direction: column;
+        }
+
+        &__options {
+            padding: 20px 10px;
+            border-radius: 3px;
+            ul {
+                padding: 0;
+                margin: 0 auto;
+
+                li {
+                    list-style: none;
+                    text-align: center;
+
+                    padding: 20px 5px;
+                }
+            }
+
+            &--purple {
+                background: linear-gradient(135deg, hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+                color: white;
+
+                button {
+                    font-family: 'Montserrat';
+                    width: 250px;
+                    height: 35px;
+                    border-radius: 3px;
+                    color: hsl(237, 63%, 64%);
+                    background-color: white;
+                    text-transform: uppercase;
+                }
+            }
+
+            &--white {
+                background: white;
+                color: lighten(black,20%);
+
+                button {
+                    font-family: 'Montserrat';
+                    background: linear-gradient(135deg, hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+                    width: 250px;
+                    height: 35px;
+                    border-radius: 3px;
+                    text-transform: uppercase;
+                    color: white;
+                }
+            }
+
+            &__price {
+                font-size: 2.7em;
+            }
+
+            &__underline {
+                border-bottom: 1px lighten(black,50%) solid;
+            }
+        }
+    }
+}
