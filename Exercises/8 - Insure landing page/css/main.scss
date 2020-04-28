@@ -1,0 +1,263 @@
+$colors: (
+    dark-violet: hsl(256, 26%, 20%),
+    grayish-blue: hsl(216, 30%, 68%),
+    very-dark-violet: hsl(270, 9%, 17%),
+    dark-grayish-violet: hsl(273, 4%, 51%),
+    very-light-gray: hsl(0, 0%, 98%)
+);
+
+@function color($colorname) {
+    @return map-get($colors, $colorname)
+};
+
+$side-padding: 110px;
+
+* { 
+    box-sizing: border-box;
+}
+
+body {
+    height:100%;
+    width: 100%;
+    font-family: 'Karla';
+    margin: 0;
+
+    .header {
+        padding: 0 $side-padding;
+        align-items: center;
+        height: 60px;
+
+        img {
+            margin-top: 22px;
+        }
+
+        ul {
+            float: right;
+            padding: 0;
+            margin: 10px 0;
+
+            li {
+                list-style: none;
+                display: inline;
+                text-transform: uppercase;
+                text-align: center;
+                margin: 0 0 0 20px;
+                font-size: 1em;
+            }
+        }
+
+        &__option {
+            text-transform: uppercase;
+            border: 0;
+            font-size: 0.9em;
+            font-family: 'Karla';
+            padding: 10px 20px;
+            background-color: white;
+            
+            &--plans {
+                border: 1.5px rgb(0,0,0) solid;
+            }
+
+            &--plans:hover {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+
+    .jumbotron {
+        color: white;
+        background-color: color(dark-violet);
+        padding-right: $side-padding;
+        display: flex;
+        justify-content: space-between;
+        
+
+        &__text {
+            padding: 50px $side-padding;
+            flex-basis: 50%;
+
+            button {
+                width: 120px;
+                height: 30px;
+                color: white;
+                background-color: transparent;
+                text-transform: uppercase;
+                font-family: 'Karla';
+            }
+
+            button:hover {
+                background-color: white;
+                color: black;
+            }
+    
+            h1 {
+                font-size: 4em;
+                font-family: 'DM Serif Display';
+            }
+
+            p {
+                font-size: 1.2em;
+            }
+        }
+
+        &__image {
+            flex-basis: 40%;
+            width: 100%;
+            height: 200px;
+            margin-top: 100px;
+        }
+    }
+
+    .jumbotron::before {
+        content: '';
+        background-image: url(../images/bg-pattern-intro-left-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: 12%;
+        background-position-y: 250px;
+        background-position-x: left;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .jumbotron::after {
+        content: '';
+        background-image: url(../images/bg-pattern-intro-right-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: 18%;
+        background-position-y: -100;
+        background-position-x: right;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .container {
+        padding: 10px $side-padding;
+        margin-top: 300px;
+
+        h1 {
+            font-size: 3.5em;
+            font-family: 'DM Serif Display';
+        }
+
+        &__flex{
+            display: flex;
+            justify-content: space-between;
+
+            &__perk {
+                width: fit-content;
+
+                h3 {
+                    font-size: 1.5em;
+                    font-family: 'DM Serif Display';
+                    margin: 25px auto 5px;
+                }
+
+                p {
+                    font-size: 0.9em;
+                    color: rgb(53, 53, 53);
+                }
+            }
+        }
+    }
+
+    .banner {
+        color: white;
+        padding: 10px $side-padding;
+        margin-top: 50px;
+        height: 200px;
+
+
+        &__flex {
+            height: 150px;
+            padding: 20px $side-padding;
+            background-image: url(../images/bg-pattern-how-we-work-desktop.svg);
+            background-repeat: no-repeat;
+            background-position: right;
+            background-color: color(dark-violet);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            h1 {
+                flex-basis: 40%;
+                font-size: 2em;
+                font-family: 'DM Serif Display';
+            }
+
+            button {
+                flex-basis: 10%;
+                width: 120px;
+                height: 30px;
+                background-color: transparent;
+                color: white;
+            }
+
+            button:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+
+    .footer {
+        background-image: url(../images/bg-pattern-footer-desktop.svg);
+        background-repeat: no-repeat;
+        background-position: left;
+        background-color: rgb(245, 245, 245);
+        padding: 30px $side-padding;
+
+        &__top {
+            height: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px rgba($color: #000000, $alpha: 0.3) solid; 
+
+            ul {
+                float: right;
+                padding: 0;
+                margin: 0;
+
+                li {
+                list-style: none;
+                display: inline-block;
+                margin-left: 15px;
+                }
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            justify-content: space-between;
+
+            &__category {
+                ul {
+                    padding: 0;
+                    margin: 0;
+
+                    li {
+                        list-style: none;
+                        text-transform: uppercase;
+                        white-space: nowrap;
+                    }
+                }
+
+                &__item {
+                    margin: 10px 0;
+                    
+                    a {
+                        color: black;
+                        text-decoration: none;
+                    }
+                }
+
+                &__title {
+                    margin: 40px 0;
+                    color: grey;
+
+                }
+            }
+        }
+    }
+}

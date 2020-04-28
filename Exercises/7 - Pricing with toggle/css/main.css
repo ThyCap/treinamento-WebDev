@@ -2,7 +2,8 @@ body {
   width: 100%;
   margin: 0 auto;
   font-family: 'Montserrat';
-  background: whitesmoke;
+  background-color: whitesmoke;
+  background: url(../images/bg-bottom.svg);
 }
 
 .container {
@@ -29,6 +30,28 @@ body {
   font-size: 2.5em;
 }
 
+.container__header button {
+  width: 50px;
+  height: 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #a3a8f0 0%, #696fdd 100%);
+  border: 1px white solid;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+.container__header button div {
+  height: 20px;
+  width: 20px;
+  border-radius: 11px;
+  background-color: white;
+  float: right;
+}
+
+.container__header a {
+  font-size: 1.4em;
+}
+
 .container__plans {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -43,11 +66,17 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .container__plans__options {
+    margin-bottom: 20px;
+  }
 }
 
 .container__plans__options {
   padding: 20px 10px;
   border-radius: 3px;
+  -webkit-box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+          box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
+  margin: 0 4px;
 }
 
 .container__plans__options ul {
@@ -64,6 +93,8 @@ body {
 .container__plans__options--purple {
   background: linear-gradient(135deg, #a3a8f0 0%, #696fdd 100%);
   color: white;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .container__plans__options--purple button {
@@ -76,9 +107,19 @@ body {
   text-transform: uppercase;
 }
 
+@media (max-width: 1000px) {
+  .container__plans__options--purple {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    margin: 10px auto;
+  }
+}
+
 .container__plans__options--white {
   background: white;
   color: #333333;
+  -webkit-transform: scale(0.95);
+          transform: scale(0.95);
 }
 
 .container__plans__options--white button {
@@ -89,6 +130,14 @@ body {
   border-radius: 3px;
   text-transform: uppercase;
   color: white;
+}
+
+@media (max-width: 1000px) {
+  .container__plans__options--white {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    margin: 10px auto;
+  }
 }
 
 .container__plans__options__price {

@@ -19,9 +19,9 @@
   <div class="container">
     <div class="container__header">
       <h1>Our Pricing</h1>
-      Annually
-      <input type="checkbox" id="container__header__checkbox" onclick="check()" unchecked>
-      Monthly
+      <a>Annually</a>
+      <button onclick="check()"><div id="container__header__toggle"></div></button>
+      <a>Monthly</a>
     </div>
     <div class="container__plans">
       <div class="container__plans__options container__plans__options--white">
@@ -81,17 +81,20 @@
       const basic__value  = document.getElementById('basic__value');
       const prof__value   = document.getElementById('prof__value');
       const master__value = document.getElementById('master__value');
+      const toggle        = document.getElementById('container__header__toggle');
 
       if (checkBool == false) {
         checkBool = true;
+        toggle.style.float = "left";
+        basic__value.innerHTML = "$199.99";
+        prof__value.innerHTML = "$249.99";
+        master__value.innerHTML = "$399.99";      
+      } else {
+        checkBool = false;
+        toggle.style.float = "right";
         basic__value.innerHTML = "$19.99";
         prof__value.innerHTML = "$24.99";
         master__value.innerHTML = "$39.99";
-      } else {
-        checkBool = false;
-        basic__value.innerHTML = "$199.99";
-        prof__value.innerHTML = "$249.99";
-        master__value.innerHTML = "$399.99";
       }
     }
   </script>

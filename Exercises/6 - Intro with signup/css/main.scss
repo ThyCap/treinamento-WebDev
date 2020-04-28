@@ -1,0 +1,174 @@
+$colors: (
+    main-red: hsl(0, 100%, 74%), 
+    light-red: hsl(0, 100%, 80%), 
+    main-green: hsl(154, 59%, 51%),
+    main-blue: hsl(248, 32%, 49%),
+    dark-blue: hsl(249, 10%, 26%) ,
+    grayish-blue: hsl(246, 25%, 77%),
+);
+
+@function color($name) {
+    @return map-get($colors, $name);
+}
+
+$std-border-rd: 10px;
+
+$mobile: 1000px;
+
+@mixin mobile {
+    @media (max-width: #{$mobile}) {
+        @content;
+    }
+}
+
+body {
+    width: 100%;
+    background-image: url(../images/bg-intro-desktop.png);
+    background-color: color(light-red);
+    font-family: Poppins;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    margin-top: 60px 0;
+
+    @include mobile {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    &__text {
+        flex-basis: 40vw;
+        color: white;
+        padding: 220px 1vw 0 7vw;
+
+        @include mobile {
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.8em;
+        }
+    }
+
+    &__card {
+        flex-basis: 40vw;
+        padding: 7vw 7vw 6vw 3vw;
+
+        @include mobile {
+            padding: 20px 5vw;
+        }
+
+        &__trial {
+            background-color: color(main-blue);
+            font-size: 1.1em;
+            color:white;
+            text-align: center;
+            border-radius: $std-border-rd;
+            padding: 10px 30px;
+            margin-bottom: 20px;
+
+            &__bold {
+                font-weight: 700;
+            }
+        }
+
+        &__form {
+            background-color: white;
+            border-radius: $std-border-rd;
+            padding: 5px 0 10px;
+
+            &__result {
+                color: color(main-red);
+                font-size: 0.6em;
+            }
+
+            &__item {
+                text-align: right;
+                padding-right: 10px;
+            }
+
+            ul {
+                padding:0 0 0 0;
+
+                li {
+                    list-style: none;
+                    margin: 0 auto;
+                    width: 29vw;
+
+                    @include mobile {
+                        width: 79vw;
+                    }
+
+                    span {
+                        z-index: 1;
+                        position: absolute;
+                        margin: 30px 15vw;
+                        right:0;
+                        width: 32px;
+                        height: 24px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+
+                        @include mobile {
+                            margin: 30px 12vw;
+                        }
+                    }
+
+                    input {
+                        z-index: 0;
+                        font-size: 1em;
+                        text-indent: 20px;
+                        margin: 15px auto 0;
+                        font-weight: 700;
+                        width: 28vw;
+                        height: 50px;
+                        border-radius: 8px;
+                        border: 1px rgba(0,0,0,0.3) solid;
+                        @include mobile {
+                            width: 78vw;
+                        }
+                    }
+
+                    button {
+                        text-transform: uppercase;
+                        font-size: 1.1em;
+                        width: 28.5vw;
+                        height: 50px;
+                        background-color: color(main-green);
+                        margin: 20px auto 0;
+                        color: white;
+                        border-radius: 8px;
+                        border: 1px rgba(0,0,0,0) solid;
+                        @include mobile {
+                            width: 79vw;
+                        }
+                    }
+
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+
+            &__terms {
+                font-size: 0.7em;
+
+                @include mobile {
+                    font-size: 0.9em;
+                }
+
+                a {
+                    color: color(main-red);
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    display: flex;
+}

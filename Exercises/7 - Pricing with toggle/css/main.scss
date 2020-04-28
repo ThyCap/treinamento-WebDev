@@ -21,7 +21,8 @@ body {
     width: 100%;
     margin: 0 auto;
     font-family: 'Montserrat';
-    background: whitesmoke;
+    background-color: whitesmoke;
+    background: url(../images/bg-bottom.svg);
 }
 
 .container {
@@ -38,6 +39,28 @@ body {
         h1 {
             font-size: 2.5em;
         }
+
+        button {
+            width: 50px;
+            height: 30px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, hsl(236, 72%, 79%) 0%, hsl(237, 63%, 64%) 100%);
+            border: 1px white solid;
+            display: inline-block;
+            padding: 0 5px;
+
+            div {
+                height: 20px;
+                width: 20px;
+                border-radius: 11px;
+                background-color: white;
+                float: right;
+            }
+        }
+
+        a {
+            font-size: 1.4em;
+        }
     }
 
     &__plans {
@@ -46,11 +69,19 @@ body {
 
         @include mobile {
             flex-direction: column;
+
+            &__options {
+                margin-bottom: 20px;
+            }
         }
 
         &__options {
             padding: 20px 10px;
             border-radius: 3px;
+            box-shadow: 2px 2px  rgba(#000000,0.4);
+            margin: 0 4px;
+
+            
             ul {
                 padding: 0;
                 margin: 0 auto;
@@ -76,6 +107,13 @@ body {
                     background-color: white;
                     text-transform: uppercase;
                 }
+
+                transform: scale(1.1);
+
+                @include mobile {
+                    transform: scale(1);
+                    margin: 10px auto;
+                }
             }
 
             &--white {
@@ -90,6 +128,13 @@ body {
                     border-radius: 3px;
                     text-transform: uppercase;
                     color: white;
+                }
+
+                transform: scale(0.95);
+
+                @include mobile {
+                    transform: scale(1);
+                    margin: 10px auto;
                 }
             }
 

@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <title>Frontend Mentor | Intro component with sign up form</title>
 
@@ -15,22 +17,64 @@
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="container__text">
+      <h1>Learn to code by watching others</h1>
 
-  Learn to code by watching others
-
-  See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
-  but understanding how developers think is invaluable. 
-
-  Try it free 7 days then $20/mo. thereafter
-
-  First Name 
-  Last Name 
-  Email Address
-  Password
-
-  Claim your free trial 
-
-  By clicking the button, you are agreeing to our Terms and Services
+      <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but understanding how developers think is invaluable. </p>
+    </div>
+    <div class="container__card">
+      <div class="container__card__trial">
+        <p><a class="container__card__trial__bold">Try it free 7 days</a> then $20/mo. thereafter</p>
+      </div>
+      <div class="container__card__form">
+        <ul>
+          <li>
+            <div class="flex">
+              <input type="text" class="container__card__form__input" id="fname" placeholder="First Name">
+              <span class="img_error" id="error_fname"></span>
+            </div>
+          </li>
+          <li class="container__card__form__item">
+            <a class="container__card__form__result" id="fname_result"></a>
+          </li>
+          <li>
+            <div class="flex">
+              <input type="text" class="container__card__form__input" id="lname" placeholder="Last Name">
+              <span class="img_error" id="error_lname"></span>
+            </div>
+          </li>
+          <li class="container__card__form__item">
+            <a class="container__card__form__result" id="lname_result"></a>
+          </li>
+          <li>
+            <div class="flex">
+              <input type="text" class="container__card__form__input" id="email" placeholder="Email adress">
+              <span class="img_error" id="error_email"></span>
+            </div>
+          </li>
+          <li class="container__card__form__item">
+            <a class="container__card__form__result" id="email_result"></a>
+          </li>
+          <li>
+            <div class="flex">
+              <input type="text" class="container__card__form__input" id="pword" placeholder="Password">
+              <span class="img_error" id="error_pword"></span>
+            </div>
+          </li>
+          <li class="container__card__form__item">
+            <a class="container__card__form__result" id="pword_result"></a>
+          </li>
+          <li>
+            <button class="myBtn" onclick="clickButton()">Claim your free trial</button>
+          </li>
+          <li>
+            <p class="container__card__form__terms">By clicking the button, you are agreeing to our <a href="#">Terms and Services</a> </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
   
   <footer>
     <p class="attribution">
@@ -38,5 +82,7 @@
       Coded by <a href="#">Your Name Here</a>.
     </p>
   </footer>
+
+  <script src="../js/main.js"></script>
 </body>
 </html>
