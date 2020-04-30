@@ -19,20 +19,30 @@
 <body>
   <div class="header">
     <img src="./images/logo.svg" alt="Insure logo">
-    <ul>
-      <li>
-        <button class="header__option">How we work</button>
-      </li>
-      <li>
-        <button class="header__option">Blog</button>
-      </li>
-      <li>
-        <button class="header__option">account</button>
-      </li>
-      <li>
-        <button class="header__option header__option--plans">view plans</button>
-      </li>
-    </ul>
+    <button class="header__hamburger" id="hamburger" onclick="menuShow()">
+      <img
+        class="header__open"
+        src="./images/icon-hamburger.svg"
+        alt="icon-hamburger"
+      />
+      <img class="header__close" src="./images/icon-close.svg" alt="icon-close" />
+    </button>
+    <div class="header__menu">
+      <ul id="menu">
+        <li>
+          <button class="header__menu__option">How we work</button>
+        </li>
+        <li>
+          <button class="header__menu__option">Blog</button>
+        </li>
+        <li>
+          <button class="header__menu__option">account</button>
+        </li>
+        <li>
+          <button class="header__menu__option header__menu__option--plans">view plans</button>
+        </li>
+      </ul>
+    </div>
   </div>
   <div class="jumbotron">
     <div class="jumbotron__text">
@@ -45,7 +55,8 @@
       <button>View plans</button>
     </div>
     <div class="jumbotron__image">
-      <img src="./images/image-intro-desktop.jpg" alt="Happy Family">
+      <img src="images/image-intro-desktop.jpg" alt="Happy Family">
+      <span></span>
     </div>
   </div>
   <div class="container">
@@ -54,8 +65,7 @@
       <div class="container__flex__perk">
         <img src="./images/icon-snappy-process.svg" alt="">
         <h3>Snappy Process</h3>
-        <p>Our application process can be completed in minutes, not hours. Don’t get 
-          stuck filling in tedious forms.</p>
+        <p>Our application process can be completed in minutes, not hours. Don’t get stuck filling in tedious forms.</p>
       </div>
       <div class="container__flex__perk">
         <img src="./images/icon-affordable-prices.svg" alt="">
@@ -79,7 +89,7 @@
   </div>
   <div class="footer">
     <div class="footer__top">
-      <img src="./images/logo.svg" alt="Insure Logo">
+      <img class="footer__top__logo" src="./images/logo.svg" alt="Insure Logo">
       <ul>
         <li>
           <img src="./images/icon-facebook.svg" alt="Facebook Logo">
@@ -170,5 +180,15 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
   </div>
+
+  <script>
+    const hamb = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+
+    function menuShow() {
+      hamburger.classList.toggle('show');
+      menu.classList.toggle('show');
+    }
+  </script>
 </body>
 </html>
