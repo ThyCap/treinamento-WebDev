@@ -8,6 +8,11 @@
     font-family: typewriter;
 }
 
+div {
+    text-align: center;
+    font-family: typewriter;
+}
+
 .header {
     text-align: center;
     vertical-align: middle;
@@ -29,6 +34,7 @@
     text-align: center;
     padding-top: 20px;
     font-family: typewriter;
+    margin-bottom: 30px;
 }
 
 ul li {
