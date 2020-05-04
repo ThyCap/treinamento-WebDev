@@ -272,7 +272,8 @@ body .container__shortener input {
   height: 40px;
   border-radius: 10px;
   text-indent: 40px;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  font-family: 'Poppins';
 }
 
 @media (max-width: 1000px) {
@@ -312,7 +313,29 @@ body .container__shortened {
   padding: 40px 20px;
   background-color: white;
   margin: 40px auto;
-  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body .container__shortened a {
+  padding-left: 56px;
+  font-size: 1.1em;
+}
+
+@media (max-width: 1000px) {
+  body .container__shortened {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 body .container__shortened button {
@@ -323,7 +346,9 @@ body .container__shortened button {
   background-color: #2acfcf;
   color: white;
   font-size: 1.1em;
-  margin: 0 0 0 auto;
+  margin: 0 12px 0 auto;
+  -webkit-transition: 100ms;
+  transition: 100ms;
 }
 
 @media (max-width: 1000px) {
