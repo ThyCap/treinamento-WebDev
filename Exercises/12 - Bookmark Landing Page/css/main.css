@@ -1,0 +1,375 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Rubik';
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 40px 80px;
+}
+
+body nav img {
+  height: 25px;
+}
+
+body nav ul li {
+  display: inline-block;
+  margin: 0 5px;
+  padding: 5px 25px;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+body nav ul li:last-child {
+  background-color: #fa5757;
+  color: white;
+  border-radius: 5px;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 40px 80px;
+}
+
+body header .header__text {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+}
+
+body header .header__text h1 {
+  font-size: 3em;
+}
+
+body header .header__text p {
+  margin: 20px 0;
+}
+
+body header .header__text ul li {
+  display: inline-block;
+}
+
+body header .header__text ul li button {
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+body header .header__text ul li:first-child button {
+  background-color: blue;
+  color: white;
+}
+
+body header .header__text ul li:nth-child(2) button {
+  background-color: #e3e4e8;
+}
+
+body header .header__image {
+  -ms-flex-preferred-size: 60%;
+      flex-basis: 60%;
+}
+
+body header .header__image img {
+  max-width: 50vw;
+}
+
+body .container {
+  text-align: center;
+  padding: 20px 80px;
+}
+
+body .container h1 {
+  font-weight: 500;
+  font-size: 2.5em;
+}
+
+body .container p {
+  width: 50%;
+  margin: 30px auto;
+}
+
+body .container ul {
+  margin: 20px 0;
+}
+
+body .container ul li {
+  display: inline-block;
+}
+
+body .container ul li button {
+  padding: 10px 30px;
+  font-size: 1em;
+  background-color: transparent;
+  border: none;
+}
+
+body .container ul li button.selected {
+  border-bottom: 2px red solid;
+}
+
+body .container__option {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: right;
+}
+
+body .container__option img {
+  -ms-flex-preferred-size: 40%;
+      flex-basis: 40%;
+  max-width: 350px;
+}
+
+body .container__option__flex {
+  -ms-flex-preferred-size: 50%;
+      flex-basis: 50%;
+  padding: 40px 0;
+}
+
+body .container__option__flex p {
+  margin: 20px 0;
+  width: 100%;
+}
+
+body .container__option__flex button {
+  background-color: blue;
+  color: white;
+  font-size: 0.9em;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+body .container .hidden {
+  display: none;
+}
+
+body .extension {
+  text-align: center;
+}
+
+body .extension h1 {
+  font-size: 2.5em;
+}
+
+body .extension__boxes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px 0;
+}
+
+body .extension__boxes div {
+  padding: 20px;
+  -webkit-box-shadow: 0.1px 0.1px 1px;
+          box-shadow: 0.1px 0.1px 1px;
+  min-height: 270px;
+}
+
+body .extension__boxes div h3 {
+  margin: 20px 0 0;
+}
+
+body .extension__boxes div p {
+  font-size: 0.8em;
+  opacity: 0.7;
+  margin: 5px 0 20px;
+}
+
+body .extension__boxes div button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  background-color: blue;
+  color: white;
+}
+
+body .extension__boxes div:nth-child(1) {
+  margin: 20px 15px 100px;
+}
+
+body .extension__boxes div:nth-child(2) {
+  margin: 60px 15px 60px;
+}
+
+body .extension__boxes div:nth-child(3) {
+  margin: 100px 15px 20px;
+}
+
+body .faq {
+  text-align: center;
+}
+
+body .faq h1 {
+  margin: 20px 0;
+}
+
+body .faq p {
+  margin: 20px 0;
+}
+
+body .faq__box {
+  width: 400px;
+  margin: 0 auto;
+}
+
+body .faq__box__question {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+}
+
+body .faq__box__question button {
+  border: none;
+  background-color: transparent;
+}
+
+body .faq__box__question button img.up {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body .faq__box__answer.hidden {
+  display: none;
+}
+
+body .faq__box__answer {
+  text-align: left;
+}
+
+body .faq__button {
+  padding: 10px 20px;
+  margin: 20px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+}
+
+body footer {
+  background-color: #252b46;
+}
+
+body footer .banner {
+  background-color: #5368df;
+  color: white;
+  text-align: center;
+  padding: 20px 20px 40px;
+}
+
+body footer .banner h1 {
+  font-weight: 400;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+body footer .banner p {
+  margin: 20px;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  letter-spacing: 5px;
+}
+
+body footer .banner__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body footer .banner__flex input {
+  width: 200px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+body footer .banner__flex button {
+  padding: 0 20px;
+  height: 31px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fa5757;
+  color: white;
+}
+
+body footer .bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 80px;
+}
+
+body footer .bottom img {
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+  background-color: blue;
+}
+
+body footer .bottom__flex {
+  -ms-flex-preferred-size: 80%;
+      flex-basis: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body footer .bottom__flex ul li {
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin: 0 15px;
+}
+/*# sourceMappingURL=main.css.map */

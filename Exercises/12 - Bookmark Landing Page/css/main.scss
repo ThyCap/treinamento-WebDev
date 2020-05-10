@@ -1,0 +1,396 @@
+$colors: (
+  soft-blue: hsl(231, 69%, 60%),
+  soft-red: hsl(0, 94%, 66%),
+  grayish-blue: hsl(229, 8%, 60%),
+  light-grayish-blue: hsl(229, 8%, 90%),
+  very-dark-blue: hsl(229, 31%, 21%),
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
+// GLOBAL
+
+* {
+  box-sizing: border-box;
+  font-family: 'Rubik';
+  outline: none;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+// SPECIFICS
+
+body {
+  width: 100%;
+  height: 100%;
+
+  padding: 0;
+  margin: 0;
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 40px 80px;
+
+    img {
+      height: 25px;
+    }
+
+    ul {
+      li {
+        display: inline-block;
+        margin: 0 5px;
+        padding: 5px 25px;
+
+        text-transform: uppercase;
+
+        font-size: 0.9em;
+      }
+
+      li:last-child {
+        background-color: color(soft-red);
+        color: white;
+
+        border-radius: 5px;
+      }
+    }
+  }
+
+  header {
+    display: flex;
+
+    padding: 40px 80px;
+
+    .header__text {
+      flex-basis: 40%;
+
+      h1 {
+        font-size: 3em;
+      }
+
+      p {
+        margin: 20px 0;
+      }
+
+      ul {
+        li {
+          display: inline-block;
+
+          button {
+            height: 40px;
+            width: 150px;
+
+            border: none;
+            border-radius: 5px;
+
+            font-size: 0.9em;
+          }
+        }
+
+        li:first-child {
+          button {
+            background-color: blue;
+            color: white;
+          }
+        }
+
+        li:nth-child(2) {
+          button {
+            background-color: color(light-grayish-blue);
+          }
+        }
+      }
+    }
+
+    .header__image {
+      flex-basis: 60%;
+
+      img {
+        max-width: 50vw;
+      }
+    }
+  }
+
+  .container {
+    text-align: center;
+
+    padding: 20px 80px;
+
+    h1 {
+      font-weight: 500;
+      font-size: 2.5em;
+    }
+
+    p {
+      width: 50%;
+
+      margin: 30px auto;
+    }
+
+    ul {
+      margin: 20px 0;
+
+      li {
+        display: inline-block;
+
+        button {
+          padding: 10px 30px;
+          font-size: 1em;
+
+          background-color: transparent;
+
+          border: none;
+        }
+
+        button.selected {
+          border-bottom: 2px red solid;
+        }
+      }
+    }
+
+    &__option {
+      display: flex;
+      justify-content: space-between;
+
+      text-align: right;
+
+      img {
+        flex-basis: 40%;
+        max-width: 350px;
+      }
+
+      &__flex {
+        flex-basis: 50%;
+
+        padding: 40px 0;
+
+        p {
+          margin: 20px 0;
+          width: 100%;
+        }
+
+        button {
+          background-color: blue;
+          color: white;
+
+          font-size: 0.9em;
+
+          border-radius: 5px;
+          padding: 10px 20px;
+        }
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+
+  .extension {
+    text-align: center;
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    &__boxes {
+      display: flex;
+      justify-content: center;
+
+      padding: 20px 0;
+
+      div {
+        padding: 20px;
+        box-shadow: 0.1px 0.1px 1px;
+
+        min-height: 270px;
+
+        h3 {
+          margin: 20px 0 0;
+        }
+
+        p {
+          font-size: 0.8em;
+          opacity: 0.7;
+          margin: 5px 0 20px;
+        }
+
+        button {
+          padding: 10px 20px;
+          border-radius: 5px;
+
+          font-size: 0.8em;
+
+          background-color: blue;
+          color: white;
+        }
+      }
+
+      div:nth-child(1) {
+        margin: 20px 15px 100px;
+      }
+
+      div:nth-child(2) {
+        margin: 60px 15px 60px;
+      }
+
+      div:nth-child(3) {
+        margin: 100px 15px 20px;
+      }
+    }
+  }
+
+  .faq {
+    text-align: center;
+
+    h1 {
+      margin: 20px 0;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    &__box {
+      width: 400px;
+
+      margin: 0 auto;
+
+      &__question {
+        display: flex;
+        justify-content: space-between;
+
+        padding: 15px 0;
+
+        border-bottom: 1px rgba(0, 0, 0, 0.3) solid;
+
+        button {
+          border: none;
+          background-color: transparent;
+
+          img.up {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      &__answer.hidden {
+        display: none;
+      }
+
+      &__answer {
+        text-align: left;
+      }
+    }
+
+    &__button {
+      padding: 10px 20px;
+      margin: 20px 0;
+
+      border: none;
+      border-radius: 5px;
+
+      background-color: blue;
+      color: white;
+    }
+  }
+
+  footer {
+    background-color: color(very-dark-blue);
+
+    .banner {
+      background-color: color(soft-blue);
+      color: white;
+
+      text-align: center;
+
+      padding: 20px 20px 40px;
+
+      h1 {
+        font-weight: 400;
+        font-size: 1.8em;
+
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin: 20px;
+
+        text-transform: uppercase;
+        font-size: 0.7em;
+        letter-spacing: 5px;
+      }
+
+      &__flex {
+        display: flex;
+        margin: 0 auto;
+
+        justify-content: center;
+
+        input {
+          width: 200px;
+          height: 30px;
+          margin-right: 10px;
+          padding: 10px 20px;
+
+          border-radius: 5px;
+          border: none;
+        }
+
+        button {
+          padding: 0 20px;
+          height: 31px;
+
+          border-radius: 5px;
+          border: none;
+
+          background-color: color(soft-red);
+          color: white;
+        }
+      }
+    }
+
+    .bottom {
+      display: flex;
+      padding: 20px 80px;
+
+      img {
+        flex-basis: 20%;
+        background-color: blue;
+      }
+
+      &__flex {
+        flex-basis: 80%;
+        display: flex;
+        justify-content: space-between;
+
+        ul li {
+          display: inline-block;
+          color: white;
+
+          text-transform: uppercase;
+          font-size: 0.8em;
+
+          margin: 0 15px;
+        }
+      }
+    }
+  }
+}
