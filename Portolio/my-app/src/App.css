@@ -1,0 +1,69 @@
+h1,
+h4,
+h5,
+p {
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.App .menu {
+  flex-basis: 20%;
+}
+
+.App .projects {
+  flex-basis: 80%;
+
+  height: calc(100vh - 200px);
+
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  overflow-y: auto;
+}
+
+.App .projects .item {
+  background-color: grey;
+
+  width: 40%;
+  min-height: 100px;
+
+  border-radius: 5px;
+
+  align-content: center;
+
+  margin: 20px;
+  padding: 30px;
+}
+
+.App .projects .item:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 1px 1px grey;
+  transition: 400ms;
+}
+
+.menu button {
+  width: 90%;
+  min-width: 200px;
+
+  padding: 5px 45px;
+  margin: 5px 20px;
+
+  box-shadow: 1px 1px 1px grey;
+
+  white-space: nowrap;
+}
+
+.selected {
+  color: green;
+  font-weight: bold;
+}
+
+.menu h5 {
+  text-align: left;
+  margin: 5px 20px;
+}
