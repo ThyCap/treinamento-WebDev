@@ -2,11 +2,11 @@ import React from 'react';
 
 function Projects(props) {
   const { projects } = props;
-  const isChecked = {
-    noTags: false,
-    HTML: true,
-    CSS: true,
-  };
+  // const isChecked = {
+  //   noTags: false,
+  //   HTML: true,
+  //   CSS: true,
+  // };
 
   const projectsList = projects.map((project) => {
     if (true) {

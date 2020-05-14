@@ -17,7 +17,7 @@ p {
 .App .projects {
   flex-basis: 80%;
 
-  height: calc(100vh - 200px);
+  height: calc(100vh - 250px);
 
   display: flex;
   justify-content: space-evenly;

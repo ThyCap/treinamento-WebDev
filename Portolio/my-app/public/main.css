@@ -63,4 +63,68 @@ header .skills ul li p {
   -ms-flex-preferred-size: 80%;
       flex-basis: 80%;
 }
+
+footer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer ul {
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 20px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+footer ul li a img {
+  height: 30px;
+}
+
+footer ul li a p {
+  position: absolute;
+  bottom: 60px;
+  padding: 4px;
+  visibility: hidden;
+  font-size: 0.8em;
+}
+
+footer ul li:hover {
+  cursor: pointer;
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+footer ul li:hover a img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 400ms;
+  transition: 400ms;
+}
+
+footer ul li:hover a p {
+  visibility: visible;
+  background-color: white;
+  font-size: 0.2em;
+  border: 1px solid black;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=main.css.map */

@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 class Menu extends Component {
   state = {
     isChecked: { noTags: true },
+    design: {
+      own: true,
+      premade: true,
+    },
   };
 
   constructTags() {
@@ -38,6 +42,7 @@ class Menu extends Component {
 
     tagList.forEach((elem) => {
       this.setState((prevState) => ({
+        ...prevState,
         isChecked: {
           ...prevState.isChecked,
           [elem]: false,
@@ -49,7 +54,6 @@ class Menu extends Component {
   handleClick = (e) => {
     let target = e.target.innerHTML;
     let tagList = this.constructTags();
-    let state = this.state;
 
     if (target === 'No Tags') {
       if (this.state.isChecked.noTags === true) {
@@ -69,39 +73,102 @@ class Menu extends Component {
       }
     } else {
       document.getElementById('noTags').classList.remove('selected');
-      this.setState((prevState) => ({
-        isChecked: {
-          ...prevState.isChecked,
-          [target]: !prevState.isChecked[target],
-          noTags: false,
-        },
-      }));
 
-      //checar se tudo eh falso
-      console.log(
-        Object.keys(state.isChecked).every((k) => !state.isChecked[k])
-      );
-      if (Object.keys(state.isChecked).every((k) => !state.isChecked[k])) {
-        this.setState((prevState) => ({
+      this.setState(
+        (prevState) => ({
+          ...prevState,
           isChecked: {
             ...prevState.isChecked,
-            noTags: true,
+            [target]: !prevState.isChecked[target],
+            noTags: false,
           },
-        }));
+        }),
+        function () {
+          if (
+            Object.keys(this.state.isChecked).every(
+              (k) => !this.state.isChecked[k]
+            )
+          ) {
+            this.setState((prevState) => ({
+              ...prevState,
+              isChecked: {
+                ...prevState.isChecked,
+                noTags: true,
+              },
+            }));
 
-        document.getElementById('noTags').classList.add('selected');
-      }
+            document.getElementById('noTags').classList.add('selected');
+          }
+        }
+      );
     }
 
     e.target.classList.toggle('selected');
+
+    this.filter();
   };
 
   handleClickDesign = (e) => {
     e.target.classList.toggle('selected');
+
+    if (e.target.id === 'own') {
+      this.setState(
+        (prevState) => ({
+          ...prevState,
+          design: {
+            ...prevState.design,
+            own: !prevState.design.own,
+          },
+        }),
+        function () {
+          if (
+            Object.keys(this.state.design).every((k) => !this.state.design[k])
+          ) {
+            this.setState((prevState) => ({
+              ...prevState,
+              design: {
+                ...prevState.design,
+                premade: true,
+              },
+            }));
+            document.getElementById('premade').classList.toggle('selected');
+          }
+        }
+      );
+    } else if (e.target.id === 'premade') {
+      this.setState(
+        (prevState) => ({
+          ...prevState,
+          design: {
+            ...prevState.design,
+            premade: !prevState.design.premade,
+          },
+        }),
+        function () {
+          if (
+            Object.keys(this.state.design).every((k) => !this.state.design[k])
+          ) {
+            this.setState((prevState) => ({
+              ...prevState,
+              design: {
+                ...prevState.design,
+                own: true,
+              },
+            }));
+            document.getElementById('own').classList.toggle('selected');
+          }
+        }
+      );
+    }
+
+    this.filter();
   };
 
+  filter() {
+    console.log('yippie-kayak');
+  }
+
   render() {
-    console.log(this.state);
     return (
       <div className="menu">
         <h5>Tags</h5>
@@ -110,15 +177,22 @@ class Menu extends Component {
         </button>
         {this.constructHTML()}
         <h5>Design</h5>
-        <button onClick={this.handleClickDesign}>Design próprio</button>
-        <button onClick={this.handleClickDesign}>Design pronto</button>
+        <button className="selected" id="own" onClick={this.handleClickDesign}>
+          Design próprio
+        </button>
+        <button
+          className="selected"
+          id="premade"
+          onClick={this.handleClickDesign}
+        >
+          Design pronto
+        </button>
       </div>
     );
   }
 
   componentDidMount() {
     this.constructState();
-    console.log(this.state);
   }
 }
 
