@@ -49,6 +49,7 @@ class Menu extends Component {
   handleClick = (e) => {
     let target = e.target.innerHTML;
     let tagList = this.constructTags();
+    let state = this.state;
 
     if (target === 'No Tags') {
       if (this.state.isChecked.noTags === true) {
@@ -78,12 +79,17 @@ class Menu extends Component {
 
       //checar se tudo eh falso
       console.log(
-        Object.keys(this.state.isChecked).every((k) => !this.state.isChecked[k])
+        Object.keys(state.isChecked).every((k) => !state.isChecked[k])
       );
-      if (
-        Object.keys(this.state.isChecked).every((k) => !this.state.isChecked[k])
-      ) {
-        console.log('cool cool');
+      if (Object.keys(state.isChecked).every((k) => !state.isChecked[k])) {
+        this.setState((prevState) => ({
+          isChecked: {
+            ...prevState.isChecked,
+            noTags: true,
+          },
+        }));
+
+        document.getElementById('noTags').classList.add('selected');
       }
     }
 

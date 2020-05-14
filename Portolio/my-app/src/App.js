@@ -70,6 +70,11 @@ class App extends Component {
     ],
   };
 
+  // filterByTag(checkedTags,projects) {
+  //   // returns true if any objects in the list is true
+  //   const trueTags = Object.keys(checkedTags).some(tag => checkedTags[tag])
+  // }
+
   render() {
     return (
       <div className="App">
