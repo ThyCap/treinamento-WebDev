@@ -8,81 +8,128 @@ class App extends Component {
   state = {
     projects: [
       {
+        name: 'Portfolio (esse site)',
+        url: 'https://google.com',
+        tags: ['HTML', 'CSS', 'Javascript', 'React'],
+        design: 'own',
+        description:
+          'Website criado com react para mostrar meus projetos realizados até então.',
+        id: 1,
+      },
+      {
         name: 'Cara ou Coroa',
+        url:
+          'https://github.com/ThyCap/treinamento-WebDev/tree/master/Cara%20coroa',
         tags: ['HTML', 'CSS', 'Javascript', 'ChartJS'],
         design: 'own',
         description:
           'Simulador de cara ou coroa, com possibilidade de apostar e plot do gráfico de incidência de eventos',
-        id: 1,
+        id: 2,
       },
       {
         name: 'Moedas em Pokémon',
+        url: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'API'],
         design: 'own',
         description:
           'Utiliza API para saber conversão em tempo real de moedas estrangeiras para BRL e as transforma em pokemons',
-        id: 2,
-      },
-      {
-        name: 'Price Grid',
-        tags: ['HTML', 'CSS'],
-        design: 'premade',
-        description: 'Exercício proposto pelo site Frontend Mentor',
         id: 3,
       },
       {
-        name: 'Four card feature',
-        tags: ['HTML', 'CSS', 'Flexbox'],
+        name: 'Price Grid',
+        url: 'https://google.com',
+        tags: ['HTML', 'CSS'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
         id: 4,
       },
       {
-        name: 'Huddle Landing Page',
-        tags: ['HTML', 'CSS', 'Javascript', 'Flexbox'],
+        name: 'Four card feature',
+        url: 'https://google.com',
+        tags: ['HTML', 'CSS', 'Flexbox'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
         id: 5,
       },
       {
-        name: 'Base Apparel',
-        tags: ['Python', 'Machine Learning'],
-        design: 'own',
+        name: 'Huddle Landing Page',
+        url: 'https://google.com',
+        tags: ['HTML', 'CSS', 'Javascript', 'Flexbox'],
+        design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
         id: 6,
       },
       {
-        name: 'Machine Learning: identificação de dígitos',
-        tags: ['Python', 'Machine Learning'],
-        design: 'own',
-        description:
-          'Treinamento de rede neural para identificar digítos cursivos',
+        name: 'Base Apparel',
+        url: 'https://google.com',
+        tags: ['HTML', 'CSS', 'Javascript', 'Flexbox'],
+        design: 'premade',
+        description: 'Exercício proposto pelo site Frontend Mentor',
         id: 7,
       },
       {
         name: 'Machine Learning: identificação de dígitos',
+        url: 'https://google.com',
         tags: ['Python', 'Machine Learning'],
         design: 'own',
         description:
           'Treinamento de rede neural para identificar digítos cursivos',
         id: 8,
       },
+      {
+        name: 'Machine Learning: cachorros vs gatos',
+        url: 'https://google.com',
+        tags: ['Python', 'Machine Learning'],
+        design: 'own',
+        description:
+          'Treinamento de rede neural para identificar entre fotos de cachorros ou gatos',
+        id: 9,
+      },
     ],
+    isChecked: {},
+    design: {},
   };
 
-  // filterByTag(checkedTags,projects) {
-  //   // returns true if any objects in the list is true
-  //   const trueTags = Object.keys(checkedTags).some(tag => checkedTags[tag])
-  // }
+  tagsToFilter = (tagList) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      isChecked: tagList,
+    }));
+  };
+
+  designFilter = (designList) => {
+    this.setState((prevState) => ({
+      ...prevState,
+      design: designList,
+    }));
+  };
 
   render() {
     return (
       <div className="App">
-        <Menu projects={this.state.projects} />
-        <Projects projects={this.state.projects} />
+        <Menu
+          projects={this.state.projects}
+          actionTag={this.tagsToFilter}
+          actionDesign={this.designFilter}
+        />
+        <Projects
+          projects={this.state.projects}
+          isChecked={this.state.isChecked}
+          design={this.state.design}
+        />
       </div>
     );
   }
 }
 
 export default App;
+
+// VK.api('users.get',{fields: 'photo_50'},function(data){
+//   if(data.response){
+//       this.setState({ //the error happens here
+//           FirstName: data.response[0].first_name
+//       });
+//       console.info(this.state.FirstName);
+//   }
+
+// }.bind(this));

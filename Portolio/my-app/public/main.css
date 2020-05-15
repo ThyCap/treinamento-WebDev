@@ -8,10 +8,14 @@ header {
   text-align: center;
 }
 
+header h4 {
+  margin-top: 20px;
+}
+
 header .skills {
   overflow-x: auto;
   white-space: nowrap;
-  padding: 20px 0;
+  padding: 5px 0 20px;
 }
 
 header .skills ul {
@@ -87,7 +91,16 @@ footer ul {
 footer ul li {
   display: inline-block;
   list-style: none;
-  margin: 20px;
+  margin: 10px 20px;
+}
+
+footer ul li p {
+  position: absolute;
+  bottom: 50px;
+  padding: 4px;
+  z-index: 100;
+  visibility: hidden;
+  font-size: 0.8em;
 }
 
 footer ul li a {
@@ -99,12 +112,30 @@ footer ul li a img {
   height: 30px;
 }
 
-footer ul li a p {
-  position: absolute;
-  bottom: 60px;
-  padding: 4px;
-  visibility: hidden;
-  font-size: 0.8em;
+footer ul li button {
+  width: 30px;
+  height: 30px;
+}
+
+footer ul li button img {
+  width: 30px;
+  height: 30px;
+}
+
+footer ul li:nth-child(1) p {
+  left: calc(50vw - 140px);
+}
+
+footer ul li:nth-child(2) p {
+  left: calc(50vw - 70px);
+}
+
+footer ul li:nth-child(3) p {
+  left: calc(50vw + 6px);
+}
+
+footer ul li:nth-child(4) p {
+  left: calc(50vw + 70px);
 }
 
 footer ul li:hover {
@@ -113,18 +144,20 @@ footer ul li:hover {
   transition: 400ms;
 }
 
-footer ul li:hover a img {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: 400ms;
-  transition: 400ms;
-}
-
-footer ul li:hover a p {
+footer ul li:hover p {
   visibility: visible;
   background-color: white;
+  z-index: 100;
   font-size: 0.2em;
   border: 1px solid black;
   border-radius: 4px;
+}
+
+footer ul li:hover a img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: 200ms;
+  transition: 200ms;
+  z-index: -1;
 }
 /*# sourceMappingURL=main.css.map */

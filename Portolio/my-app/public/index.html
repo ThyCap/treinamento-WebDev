@@ -31,7 +31,7 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <header>
       <h1>Portfolio Thyago Capitanio</h1>
-      <h4>Skills</h4>
+      <h4>Minhas habilidades</h4>
       <div class="skills">
         <ul>
           <li>
@@ -109,8 +109,8 @@
     <footer>
       <ul>
         <li>
+          <p class="tooltip">Ir para Github</p>
           <a href="https://github.com/ThyCap" target="_blank">
-            <p class="tooltip">Meu Github</p>
             <img
               src="https://image.flaticon.com/icons/svg/2111/2111432.svg"
               alt="github logo"
@@ -118,11 +118,11 @@
           </a>
         </li>
         <li>
+          <p class="tooltip">Ir para Linkedin</p>
           <a
             href="https://www.linkedin.com/in/thyagocapitanio/"
             target="_blank"
           >
-            <p class="tooltip">Meu Linkedin</p>
             <img
               src="https://image.flaticon.com/icons/svg/2111/2111532.svg"
               alt="linkedin logo"
@@ -130,17 +130,44 @@
           </a>
         </li>
         <li>
+          <p class="tooltip">Baixar CV</p>
           <a href="./CV.pdf" download="Thyago_Capitanio__CV">
-            <p class="tooltip">Meu CV</p>
             <img
               src="https://image.flaticon.com/icons/svg/942/942799.svg"
               alt="cv resume logo"
-              tooltip="Resume"
-              tooltip-position="top"
+            />
+          </a>
+        </li>
+        <li>
+          <p class="tooltip">Copiar e-mail</p>
+          <a href="#" id="email">
+            <img
+              src="https://www.flaticon.com/premium-icon/icons/svg/2593/2593779.svg"
+              alt="email logo"
             />
           </a>
         </li>
       </ul>
     </footer>
+
+    <script>
+      const mail = document.getElementById('email');
+      const myEmail = 'thyagoacapitanio@gmail.com';
+
+      mail.addEventListener('click', function () {
+        const el = document.createElement('textarea');
+
+        el.value = myEmail;
+
+        document.body.appendChild(el);
+        el.select();
+        el.setSelectionRange(0, 99999);
+
+        alert(`${myEmail} copiado para a área de transferência`);
+
+        document.execCommand('copy');
+        document.body.removeChild(el);
+      });
+    </script>
   </body>
 </html>
