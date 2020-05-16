@@ -9,7 +9,8 @@ class App extends Component {
     projects: [
       {
         name: 'Portfolio (esse site)',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'React'],
         design: 'own',
         description:
@@ -18,8 +19,8 @@ class App extends Component {
       },
       {
         name: 'Cara ou Coroa',
-        url:
-          'https://github.com/ThyCap/treinamento-WebDev/tree/master/Cara%20coroa',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'ChartJS'],
         design: 'own',
         description:
@@ -28,7 +29,8 @@ class App extends Component {
       },
       {
         name: 'Moedas em Pokémon',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'API'],
         design: 'own',
         description:
@@ -37,7 +39,8 @@ class App extends Component {
       },
       {
         name: 'Price Grid',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
@@ -45,7 +48,8 @@ class App extends Component {
       },
       {
         name: 'Four card feature',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Flexbox'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
@@ -53,7 +57,8 @@ class App extends Component {
       },
       {
         name: 'Huddle Landing Page',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'Flexbox'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
@@ -61,7 +66,8 @@ class App extends Component {
       },
       {
         name: 'Base Apparel',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['HTML', 'CSS', 'Javascript', 'Flexbox'],
         design: 'premade',
         description: 'Exercício proposto pelo site Frontend Mentor',
@@ -69,7 +75,8 @@ class App extends Component {
       },
       {
         name: 'Machine Learning: identificação de dígitos',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['Python', 'Machine Learning'],
         design: 'own',
         description:
@@ -78,7 +85,8 @@ class App extends Component {
       },
       {
         name: 'Machine Learning: cachorros vs gatos',
-        url: 'https://google.com',
+        gitUrl: 'https://google.com',
+        liveUrl: 'https://google.com',
         tags: ['Python', 'Machine Learning'],
         design: 'own',
         description:

@@ -1,7 +1,26 @@
+$colors: (
+  greyish-blue: #9fb2bf,
+  dark-blue: #4a718c,
+  very-light-blue: #e1f2f0,
+  light-pink: #f4b3a6,
+  darkish-pink: #bf9f9f,
+);
+
+@function color($color-name) {
+  @return map-get($colors, $color-name);
+}
+
 h1,
 h4,
 p {
   margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+
+  background-color: color(very-light-blue);
 }
 
 header {
@@ -32,7 +51,10 @@ header {
 
         box-shadow: 1px 1px 3px grey;
 
-        background-color: rgb(250, 250, 250);
+        background-color: color(greyish-blue);
+        color: white;
+
+        font-weight: bold;
 
         img {
           height: 40px;
@@ -142,7 +164,7 @@ footer {
 
       p {
         visibility: visible;
-        background-color: white;
+        background-color: color(very-light-blue);
 
         z-index: 100;
 
