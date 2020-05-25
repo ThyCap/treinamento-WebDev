@@ -1,0 +1,47 @@
+.products {
+  padding: 0 100px;
+}
+
+.products h1 {
+  color: white;
+}
+
+.list {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+.list .item {
+  background-color: white;
+  color: black;
+
+  padding: 50px 0;
+
+  border-radius: 10px;
+}
+
+.list .item h1 {
+  color: black;
+}
+
+.list .item button {
+  width: 45%;
+  height: 30px;
+
+  border-radius: 10px;
+
+  background-color: #282c34;
+  color: white;
+
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.list .item button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+
+  transition: 100ms;
+}

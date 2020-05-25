@@ -25,7 +25,16 @@ function Projects(props) {
   } else {
     projectsList = showProjects.map((project) => {
       return (
-        <div className="item" key={project.id}>
+        <div
+          className="item"
+          key={project.id}
+          style={{
+            backgroundImage: `url(./img/${project.imgUrl})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            backgroundPositionY: '-1px',
+          }}
+        >
           <h1>{project.name}</h1>
           <p>{project.description}</p>
           <ul>

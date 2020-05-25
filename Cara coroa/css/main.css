@@ -1,72 +1,96 @@
 body {
-    font-family:"Lucida Console", Monaco, monospace;
-    text-align: center;
+  font-family: 'Lucida Console', Monaco, monospace;
+  text-align: center;
+
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
 }
 
 h1 {
-    text-align: center;
-    margin: auto;
-    padding-top: 25px;
+  text-align: center;
+  margin: auto;
+  padding-top: 25px;
 }
 
 .header {
-    background-color: beige;
-    height: 80px;
-    width: 100%;
-    margin: 0 auto;
+  background-color: beige;
+  height: 80px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+
+  justify-content: space-evenly;
+  align-content: center;
 }
 
-.menu {
-    flex-basis: 40%;
-    padding: 40px 20px;
+@media screen and (max-width: 850px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .chart .wrapper {
+    position: relative;
+
+    height: 400px;
+    width: calc(100% - 40px);
+    margin: 0 auto;
+  }
 }
 
-.chart {
-    flex-basis: 60%;
-    padding: 20px 20px;
-    max-width: 600px;
+.cointaner .menu {
+  flex-basis: 30%;
+  padding: 20px;
+}
+
+.container .menu ul {
+  padding: 0;
+  margin: 0 0 auto;
+}
+
+.container ul li {
+  list-style: none;
+  margin: 20px auto;
+}
+
+.container .chart {
+  flex-basis: 70%;
+  padding: 10px;
 }
 
 .button {
-    background-color: lightblue;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    width: 180px;
-}
-
-.buttons ul li {
-    list-style: none;
+  background-color: lightblue;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  width: 180px;
 }
 
 .button:hover {
-    background-color: blue;
-}
-
-ul li {
-    list-style: none;
-    margin: 18px 0 15px 0;
-}
-
-.result {
-    font-weight: 1000;
-    font-size: 20px;
+  background-color: blue;
 }
 
 #myChart {
-    margin: 20px auto;
-    max-width: 1200px;
-    width: 1000px;
+  margin: 0 auto;
 }
 
-#result {
-    font-size: 1.1em;
+.chart .wrapper {
+  position: relative;
+  height: 400px;
+  width: calc(100% - 80px);
+}
+
+a#result {
+  font-size: 1.1em;
+
+  max-width: 180px;
+  max-height: 50px;
+  white-space: pre-wrap;
 }

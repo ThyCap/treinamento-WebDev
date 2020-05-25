@@ -27,7 +27,7 @@ p {
 
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-auto-rows: minmax(180px, 200px);
+  grid-auto-rows: minmax(400px, 600px);
   gap: 30px;
 
   align-items: stretch;
@@ -43,7 +43,12 @@ p {
 
   align-content: center;
 
-  padding: 20px;
+  padding: 55% 20px 20px;
+
+  /* background-image: url(../src/img/Cara_ou_coroa/Cara_ou_coroa_1.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 0 -1px; */
 }
 
 .App .projects .item:hover {

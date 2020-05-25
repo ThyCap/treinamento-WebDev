@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/main.css">
-    
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      rel="icon"
+      href="https://image.flaticon.com/icons/svg/2933/2933116.svg"
+    />
+
+    <title>Cara ou coroa</title>
+  </head>
+  <body>
     <div class="header">
-        <h1>Cara ou Coroa</h1>
-    </div>
-    <div class="container">
-        <div class="menu">
-            <ul>
-                <li>
-                    <p>Seu dinheiro: R$<a id="chips">10</a> <a id="change"></a></p>
-                </li>
-                <li>
-                    <button class="button" onclick="clickButton('headBet')" id="button1">Cara (a)</button>
-                </li>
-                <li>
-                    <button class="button" onclick="clickButton('tailBet')" id="button2" >Coroa (s)</button>
-                </li>
-                <li>
-                    <button class="button" onclick="reset()">Resetar (r)</button>
-                </li>
-                <li>
-                    <a id="result"></a>
-                </li>
-                <!--
-                <li>
-                    <input type="checkbox" id="showGraph" onclick="checkboxGraph()" unchecked> Mostrar Gráfico
-                </li>
-                -->
-                <li>
-                    Cara: <a id="heads">0</a>
-                </li>
-                <li>
-                    Coroa: <a id="tails">0</a>
-                </li>
-                <li>
-                    Rodadas: <a id="clicks">0</a>
-                </li>
-            </ul>
-        </div>
-        <div class="chart">
-            <canvas id="myChart" height="400" width="550"></canvas>
-        </div>
+      <h1>Cara ou Coroa</h1>
     </div>
 
+    <div class="container">
+      <div class="menu">
+        <ul>
+          <li>
+            <p>Seu dinheiro: R$<a id="chips">10</a> <a id="change"></a></p>
+          </li>
+          <li>
+            <button
+              class="button"
+              onclick="clickButton('headBet')"
+              id="button1"
+            >
+              Cara (a)
+            </button>
+          </li>
+          <li>
+            <button
+              class="button"
+              onclick="clickButton('tailBet')"
+              id="button2"
+            >
+              Coroa (s)
+            </button>
+          </li>
+          <li>
+            <button class="button" onclick="reset()">Resetar (r)</button>
+          </li>
+          <li>
+            <a id="result"></a>
+          </li>
+          <li>Cara: <a id="heads">0</a></li>
+          <li>Coroa: <a id="tails">0</a></li>
+          <li>Rodadas: <a id="clicks">0</a></li>
+        </ul>
+      </div>
+      <div class="chart">
+        <div class="wrapper">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"
+      integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="
+      crossorigin="anonymous"
+    ></script>
     <script src="../js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
-</body>
+  </body>
 </html>
