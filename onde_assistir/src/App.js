@@ -115,6 +115,7 @@ class App extends Component {
         cartList.push({
           name: this.state.showProduct.name,
           key: this.state.showProduct.key,
+          price: this.state.showProduct.price,
           size: orderNum,
         });
       }

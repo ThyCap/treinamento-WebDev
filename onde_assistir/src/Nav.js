@@ -32,6 +32,20 @@ class Nav extends Component {
     document.getElementById('bg-nav').classList.toggle('hide');
   };
 
+  cartSum(cart) {
+    let sum = 0;
+
+    if (cart.length === 0) {
+      return 0;
+    } else {
+      cart.forEach((product) => {
+        sum += product.price * product.size;
+      });
+
+      return sum;
+    }
+  }
+
   render() {
     return (
       <div id="header">
@@ -56,6 +70,10 @@ class Nav extends Component {
             cart={this.props.cart}
             deleteFromCart={this.props.deleteFromCart}
           />
+          <div className="cartMenu">
+            <p>Total: R${this.cartSum(this.props.cart).toFixed(2)}</p>
+            <button>Finalizar compra</button>
+          </div>
         </div>
         <div className="popup hide" id="login">
           <Login />

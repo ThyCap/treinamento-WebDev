@@ -6,16 +6,16 @@ class Login extends Component {
   state = {
     loginList: [
       {
+        id: 1,
+        name: 'Thyago',
         login: 'thycap',
         password: '123456',
-        name: 'Thyago',
-        id: 1,
       },
       {
-        login: 'alanna',
-        password: '123456',
-        name: 'Alanna',
         id: 2,
+        name: 'Hamilton',
+        login: 'alex',
+        password: '123456',
       },
     ],
     loggedUser: {},
@@ -35,6 +35,8 @@ class Login extends Component {
           isLogged: true,
           loggedUser: login,
         }));
+        console.log('foi');
+        document.getElementById('loginError').innerHTML = 'Tudo ok';
       } else if (log === login.login && pword !== login.password) {
         console.log('senha errada!');
         document.getElementById('loginError').innerHTML = 'senha errada!';
@@ -94,9 +96,12 @@ class Login extends Component {
   };
 
   checkAndChangePword = (e) => {
+    e.preventDefault();
+
     let currentPword = document.getElementById('currentChange').value;
     let pword = document.getElementById('passwordChange').value;
     let rePword = document.getElementById('repasswordChange').value;
+    const logError = document.getElementById('loginError');
 
     let currentId = this.state.loggedUser.id;
     let logins = [...this.state.loginList];
@@ -112,15 +117,28 @@ class Login extends Component {
         }
       });
 
-      this.setState((prevState) => ({
-        ...prevState,
-        loginList: logins,
-        changePword: false,
-        loggedUser: {
-          ...prevState.loggedUser,
-          password: pword,
-        },
-      }));
+      this.setState(
+        (prevState) => ({
+          ...prevState,
+          loginList: logins,
+          changePword: false,
+          loggedUser: {
+            ...prevState.loggedUser,
+            password: pword,
+          },
+        }),
+        function () {
+          logError.innerHTML = 'Senha alterada!';
+          alert('Senha alterada com sucesso!');
+          this.render();
+        }
+      );
+    } else if (currentPword === '' || pword === '' || rePword === '') {
+      logError.innerHTML = 'Input vazio';
+    } else if (currentPword !== this.state.loggedUser.password) {
+      logError.innerHTML = 'Senha atual errada';
+    } else if (pword !== rePword) {
+      logError.innerHTML = 'Senhas são diferentes';
     }
   };
 
@@ -146,6 +164,11 @@ class Login extends Component {
   };
 
   render() {
+    try {
+      console.log(document.getElementById('loginError').innerHTML);
+    } catch (err) {
+      console.log('ih fudeu');
+    }
     if (this.state.isLogged && !this.state.changePword) {
       // logged in page
       return (

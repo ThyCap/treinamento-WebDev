@@ -6,9 +6,14 @@ function Cart(props) {
   const cartList = props.cart.map((product) => {
     return (
       <div className="cartItem" key={product.key}>
-        <h1>{product.name}</h1>
-        <p>Qtd. {product.size}</p>
-        <p>
+        <p className="cartItem__name" style={{ fontWeight: 'bold' }}>
+          {product.name}
+        </p>
+        <p className="cartItem__qty">Qtd. {product.size}</p>
+        <p className="cartItem__price">
+          Total: R$ {(product.size * product.price).toFixed(2)}
+        </p>
+        <p className="cartItem__delete">
           <ion-icon
             name="trash-outline"
             id={'rm-' + product.key}
@@ -20,7 +25,11 @@ function Cart(props) {
   });
 
   if (cartList.length === 0) {
-    return <h1 className="empty">Carrinho Vazio</h1>;
+    return (
+      <div className="cartList" id="cartList">
+        <h1 className="empty">Carrinho Vazio</h1>
+      </div>
+    );
   } else {
     return (
       <div className="cartList" id="cartList">
