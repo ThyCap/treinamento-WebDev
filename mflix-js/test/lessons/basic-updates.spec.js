@@ -121,9 +121,11 @@ describe("Basic Updates", () => {
      * and update the value of the "city" field to Bloomington.
      */
 
-    const oldTheaterDocuments = await (await theaters.find({
-      "location.address.zipcode": "55111",
-    })).toArray()
+    const oldTheaterDocuments = await (
+      await theaters.find({
+        "location.address.zipcode": "55111",
+      })
+    ).toArray()
 
     // expect all the theaters in 55111 to reside in Minneapolis
     oldTheaterDocuments.map(theater => {
@@ -142,9 +144,11 @@ describe("Basic Updates", () => {
     // expect this operation to update exactly 6 theater document
     expect(updateManyResult.modifiedCount).toEqual(6)
 
-    const newTheaterDocuments = await (await theaters.find({
-      "location.address.zipcode": "55111",
-    })).toArray()
+    const newTheaterDocuments = await (
+      await theaters.find({
+        "location.address.zipcode": "55111",
+      })
+    ).toArray()
 
     // expect all the updated theater documents to reside in Bloomington
     newTheaterDocuments.map(theater => {
