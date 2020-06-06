@@ -3,6 +3,7 @@ import './App.css';
 
 import Menu from './Menu.js';
 import Projects from './Projects.js';
+import AboutMe from './aboutMe.js';
 
 import projectDb from './projects.json';
 
@@ -11,6 +12,7 @@ class App extends Component {
     projects: projectDb.projects,
     isChecked: {},
     design: {},
+    show: 'about',
   };
 
   tagsToFilter = (tagList) => {
@@ -27,19 +29,70 @@ class App extends Component {
     }));
   };
 
+  changeToAbout = (e) => {
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        show: 'about',
+      }),
+      function () {
+        document.getElementById('aboutBtn').classList.add('selectedOps');
+        document.getElementById('aboutDiv').classList.remove('hide');
+
+        document.getElementById('projectsBtn').classList.remove('selectedOps');
+        document.getElementById('projectsDiv').classList.add('hide');
+      }
+    );
+  };
+
+  changeToProjects = (e) => {
+    this.setState(
+      (prevState) => ({
+        ...prevState,
+        show: 'projects',
+      }),
+      function () {
+        document.getElementById('aboutBtn').classList.remove('selectedOps');
+        document.getElementById('aboutDiv').classList.add('hide');
+
+        document.getElementById('projectsBtn').classList.add('selectedOps');
+        document.getElementById('projectsDiv').classList.remove('hide');
+      }
+    );
+  };
+
+  whatToDisplay = () => {};
+
   render() {
     return (
       <div className="App">
-        <Menu
-          projects={this.state.projects}
-          actionTag={this.tagsToFilter}
-          actionDesign={this.designFilter}
-        />
-        <Projects
-          projects={this.state.projects}
-          isChecked={this.state.isChecked}
-          design={this.state.design}
-        />
+        <div className="options">
+          <button
+            id="aboutBtn"
+            className="selectedOps"
+            onClick={this.changeToAbout}
+          >
+            Sobre Mim
+          </button>
+          <button id="projectsBtn" onClick={this.changeToProjects}>
+            Projetos
+          </button>
+        </div>
+        <div id="aboutDiv" className="aboutMe hide">
+          <AboutMe />
+        </div>
+        <div id="projectsDiv" className="display">
+          <Menu
+            projects={this.state.projects}
+            actionTag={this.tagsToFilter}
+            actionDesign={this.designFilter}
+          />
+          <Projects
+            projects={this.state.projects}
+            isChecked={this.state.isChecked}
+            design={this.state.design}
+          />
+        </div>
       </div>
     );
   }

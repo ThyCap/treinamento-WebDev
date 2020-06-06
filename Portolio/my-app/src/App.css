@@ -7,21 +7,42 @@ p {
 
 .App {
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.App .options button {
+  border: none;
+  border-bottom: 1px solid black;
+  background-color: transparent;
+
+  padding: 5px 20px;
+
+  font-size: 1.3em;
+}
+
+.App .options button.selectedOps {
+  font-weight: bold;
+  border-bottom: 3px solid black;
+}
+
+.display {
   display: flex;
 }
 
-.App .menu {
+.App .display .menu {
   flex-basis: 25%;
 
-  height: calc(100vh - 234px);
+  height: calc(100vh - 168px);
   min-height: 150px;
   overflow-y: auto;
 }
 
-.App .projects {
+.App .display .projects {
   flex-basis: 75%;
 
-  height: calc(100vh - 274px);
+  height: calc(100vh - 168px);
   min-height: 150px;
   padding: 20px;
 
@@ -44,11 +65,6 @@ p {
   align-content: center;
 
   padding: 55% 20px 20px;
-
-  /* background-image: url(../src/img/Cara_ou_coroa/Cara_ou_coroa_1.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 0 -1px; */
 }
 
 .App .projects .item:hover {
@@ -95,6 +111,10 @@ p {
   cursor: pointer;
   font-size: 1.1em;
   transition: 200ms;
+}
+
+.App .hide {
+  display: none;
 }
 
 .menu .show {

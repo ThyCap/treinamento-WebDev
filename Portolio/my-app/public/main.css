@@ -1,3 +1,7 @@
+* {
+  outline: none;
+}
+
 h1,
 h4,
 p {
@@ -18,47 +22,6 @@ header h4 {
   margin-top: 20px;
 }
 
-header .skills {
-  overflow-x: auto;
-  white-space: nowrap;
-  padding: 5px 0 20px;
-}
-
-header .skills ul {
-  padding: 0;
-  margin: 0;
-}
-
-header .skills ul li {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  list-style: none;
-  margin: 0 20px;
-  padding: 20px 30px;
-  border-radius: 8px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  -webkit-box-shadow: 1px 1px 3px grey;
-          box-shadow: 1px 1px 3px grey;
-  background-color: #9fb2bf;
-  color: white;
-  font-weight: bold;
-}
-
-header .skills ul li img {
-  height: 40px;
-  width: 40px;
-}
-
-header .skills ul li p {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin: 0 0 0 20px;
-}
-
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,18 +31,18 @@ header .skills ul li p {
 
 .container .root {
   -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
+  flex-basis: 20%;
 }
 
 .container .projects {
   -ms-flex-preferred-size: 80%;
-      flex-basis: 80%;
+  flex-basis: 80%;
 }
 
 footer {
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 footer ul {
@@ -89,11 +52,11 @@ footer ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
+  -ms-flex-pack: end;
+  justify-content: end;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 footer ul li {
@@ -163,7 +126,7 @@ footer ul li:hover p {
 
 footer ul li:hover a img {
   -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
   -webkit-transition: 200ms;
   transition: 200ms;
   z-index: -1;
