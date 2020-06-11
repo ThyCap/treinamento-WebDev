@@ -19,17 +19,23 @@ require("dotenv").config()
 // To read more about this type of expression, refer to https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 ;(async () => {
   try {
-    const host = process.env.MFLIX_DB_URI
-    const client = await MongoClient.connect(host, { useNewUrlParser: true })
-    const mflix = client.db(process.env.MFLIX_NS)
+    const host =
+      "mongodb+srv://thycap:nCJ6MzZontupxy@mflix-qkwpu.mongodb.net/test?retryWrites=true&w=majority"
+    // process.env.MFLIX_DB_URI
+    const client = await MongoClient.connect(host, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    })
+    const mflix = client.db("sample_mflix")
+    // process.env.MFLIX_NS
 
     // TODO: Create the proper predicate and projection
     // add a predicate that checks that the `lastupdated` field exists, and then
     // check that its type is a string
     // a projection is not required, but may help reduce the amount of data sent
     // over the wire!
-    const predicate = { somefield: { $someOperator: true } }
-    const projection = {}
+    const predicate = { lastupdated: { $exists: true, $type: "string" } }
+    const projection = { title: 1, lastUpdated: 1 }
     const cursor = await mflix
       .collection("movies")
       .find(predicate, projection)
@@ -42,12 +48,16 @@ require("dotenv").config()
         },
       },
     }))
+
     console.log(
       "\x1b[32m",
       `Found ${moviesToMigrate.length} documents to update`,
     )
+
     // TODO: Complete the BulkWrite statement below
-    const { modifiedCount } = await "some bulk operation"
+    const { modifiedCount } = await mflix
+      .collection("movies")
+      .bulkWrite(moviesToMigrate)
 
     console.log("\x1b[32m", `${modifiedCount} documents updated`)
     client.close()
