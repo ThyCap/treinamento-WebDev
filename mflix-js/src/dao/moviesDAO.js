@@ -1,4 +1,5 @@
 import { ObjectId } from "bson"
+import { expect } from "chai"
 
 let movies
 let mflix
@@ -327,6 +328,8 @@ export default class MoviesDAO {
 
       // TODO Ticket: Error Handling
       // Catch the InvalidId error by string matching, and then handle it.
+      expect(e).not.toBeNull()
+      expect(e.errmsg).toContain("E11000 duplicate key error colletion")
       console.error(`Something went wrong in getMovieByID: ${e}`)
       throw e
     }

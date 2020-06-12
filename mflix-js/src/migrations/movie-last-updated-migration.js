@@ -21,7 +21,7 @@ require("dotenv").config()
   try {
     const host =
       "mongodb+srv://thycap:nCJ6MzZontupxy@mflix-qkwpu.mongodb.net/test?retryWrites=true&w=majority"
-    // process.env.MFLIX_DB_URI
+    //  process.env.MFLIX_DB_URI
     const client = await MongoClient.connect(host, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
