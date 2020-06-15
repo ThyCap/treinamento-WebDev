@@ -19,9 +19,8 @@ require("dotenv").config()
 // To read more about this type of expression, refer to https://developer.mozilla.org/en-US/docs/Glossary/IIFE
 ;(async () => {
   try {
-    const host =
-      "mongodb+srv://thycap:nCJ6MzZontupxy@mflix-qkwpu.mongodb.net/test?retryWrites=true&w=majority"
-    //  process.env.MFLIX_DB_URI
+    const host = process.env.MFLIX_DB_URI
+    // "mongodb+srv://thycap:nCJ6MzZontupxy@mflix-qkwpu.mongodb.net/test?retryWrites=true&w=majority"
     const client = await MongoClient.connect(host, {
       useNewUrlParser: true,
       useUnifiedTopology: true,

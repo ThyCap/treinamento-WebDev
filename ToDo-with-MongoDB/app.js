@@ -1,21 +1,16 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import morgan from 'morgan';
-import db from './db.js';
+const express = require('express');
+const bodyParser = require('body-parser');
+const path = require('path');
+const db = require('./db.js');
 
 const app = express();
+app.use(bodyParser.json());
+
 const collection = 'projects';
 
-app.use(cors());
-process.env.NODE_ENV !== 'prod' && app.use(morgan('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// Register api routes
-app.use('/status', express.static('build'));
-app.use('/', express.static('build'));
-app.use('*', (req, res) => res.status(404).json({ error: 'not found' }));
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 app.get('/getTodos', (req, res) => {
   db.getDB()
@@ -63,5 +58,3 @@ db.connect((err) => {
     });
   }
 });
-
-export default app;
